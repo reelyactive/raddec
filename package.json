@@ -1,0 +1,35 @@
+{
+  "name": "raddec",
+  "homepage": "https://github.com/reelyactive/raddec/",
+  "author": "reelyActive <webdev@reelyactive.com>",
+  "description": "RADio DECoding packet library for RFID, RTLS and M2M.  We believe in an open Internet of Things.",
+  "keywords": [
+    "reelyActive",
+    "IoT",
+    "RFID",
+    "RTLS",
+    "M2M",
+    "library"
+  ],
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "main": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reelyactive/raddec.git"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5"
+  },
+  "bugs": {
+    "url": "https://github.com/reelyactive/raddec/issues"
+  },
+  "contributors": [
+    { "name": "Jeffrey Dungen" }
+  ],
+  "license": "MIT"
+}
