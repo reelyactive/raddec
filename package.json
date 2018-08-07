@@ -11,11 +11,11 @@
     "M2M",
     "library"
   ],
-  "version": "0.0.1",
+  "version": "0.1.0",
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=6.0.0"
   },
-  "main": "./lib/index.js",
+  "main": "./lib/raddec.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/reelyactive/raddec.git"
