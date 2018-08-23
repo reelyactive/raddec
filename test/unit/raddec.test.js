@@ -51,6 +51,8 @@ const INPUT_DATA_MERGE_RADDEC = {
 };
 const INPUT_DATA_HEX_STRING_RADDEC =
     '10002202aabbccddeeff02350401001bc50940810000550101001bc5094081000117';
+const INPUT_DATA_BUFFER_RADDEC =
+    Buffer.from(INPUT_DATA_HEX_STRING_RADDEC, 'hex');
 
 
 // Expected outputs for the scenario
@@ -139,6 +141,7 @@ const EXPECTED_DATA_HEX_STRING_RADDEC = {
       numberOfDecodings: 1
     }]
 };
+const EXPECTED_DATA_BUFFER_RADDEC = EXPECTED_DATA_HEX_STRING_RADDEC;
 
 
 // Describe the scenario
@@ -235,6 +238,12 @@ describe('raddec', function() {
   it('should construct a Raddec from hexadecimal string', function() {
     raddec = new Raddec(INPUT_DATA_HEX_STRING_RADDEC);
     assert.deepEqual(raddec, EXPECTED_DATA_HEX_STRING_RADDEC);
+  });
+
+  // Test the constructor from Buffer
+  it('should construct a Raddec from Buffer', function() {
+    raddec = new Raddec(INPUT_DATA_BUFFER_RADDEC);
+    assert.deepEqual(raddec, EXPECTED_DATA_BUFFER_RADDEC);
   });
 
 });
