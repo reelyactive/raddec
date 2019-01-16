@@ -16,19 +16,19 @@ const INPUT_DATA_FIRST_DECODING = {
     receiverId: "00-1b-c5-09-40-81-00-00",
     receiverIdType: 1,
     rssi: -69,
-    time: 1420075425678
+    timestamp: 1420075425678
 };
 const INPUT_DATA_SECOND_DECODING = {
     receiverId: "001BC50940810000",
     receiverIdType: 1,
     rssi: -72,
-    time: 1420075424567
+    timestamp: 1420075424567
 };
 const INPUT_DATA_THIRD_DECODING = {
     receiverId: "001bc50940810001",
     receiverIdType: 1,
     rssi: -42,
-    time: 1420075426789
+    timestamp: 1420075426789
 };
 const INPUT_DATA_FIRST_PACKET =
     '061bffeeddccbbaa02010611074449555520657669746341796c656572';
