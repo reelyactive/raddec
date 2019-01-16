@@ -53,7 +53,19 @@ const INPUT_DATA_HEX_STRING_RADDEC =
     '10002202aabbccddeeff02350401001bc50940810000550101001bc5094081000117';
 const INPUT_DATA_BUFFER_RADDEC =
     Buffer.from(INPUT_DATA_HEX_STRING_RADDEC, 'hex');
-
+const INPUT_DATA_TRIM_RADDEC = {
+    transmitterId: "aa:bb:cc:dd:ee:ff",
+    transmitterIdType: 2,
+    packets: [ '061bffeeddccbbaa02010611074449555520657669746341796c656576' ],
+    rssiSignature: [{
+        receiverId: "001bc50940810000",
+        receiverIdType: 1,
+        rssi: -77,
+        rssiSum: -154,
+        numberOfDecodings: 2
+    }],
+    earliestDecodingTime: 1420075424000
+};
 
 // Expected outputs for the scenario
 const EXPECTED_DATA_TRANSMITTER_ID = "aabbccddeeff";
@@ -142,6 +154,18 @@ const EXPECTED_DATA_HEX_STRING_RADDEC = {
     }]
 };
 const EXPECTED_DATA_BUFFER_RADDEC = EXPECTED_DATA_HEX_STRING_RADDEC;
+const EXPECTED_DATA_TRIM_RADDEC = {
+    transmitterId: "aabbccddeeff",
+    transmitterIdType: 2,
+    packets: [ '061bffeeddccbbaa02010611074449555520657669746341796c656576' ],
+    rssiSignature: [{
+        receiverId: "001bc50940810000",
+        receiverIdType: 1,
+        rssi: -77,
+        numberOfDecodings: 2
+    }],
+    timestamp: 1420075424000
+};
 
 
 // Describe the scenario
@@ -244,6 +268,13 @@ describe('raddec', function() {
   it('should construct a Raddec from Buffer', function() {
     raddec = new Raddec(INPUT_DATA_BUFFER_RADDEC);
     assert.deepEqual(raddec, EXPECTED_DATA_BUFFER_RADDEC);
+  });
+
+  // Test the trim function
+  it('should trim non-standard properties from the Raddec', function() {
+    raddec = new Raddec(INPUT_DATA_TRIM_RADDEC);
+    raddec.trim();
+    assert.deepEqual(raddec, EXPECTED_DATA_TRIM_RADDEC);
   });
 
 });
