@@ -18,7 +18,22 @@ For a broad range of applications, it is useful to identify, to locate and to co
 Overview
 --------
 
-A __raddec__ has two forms: an _encoded_ form in which it has a strict binary representation, and a _decoded_ form in which it typically has a less-restricive JSON representation.
+A __raddec__ has two forms: an _encoded_ form in which it has a strict binary representation, and a _decoded_ form in which it typically has a less-restrictive JSON representation.  The JSON representation is as follows:
+
+```javascript
+{
+  transmitterId: "aabbccddeeff",
+  transmitterIdType: 2,
+  rssiSignature: [{
+      receiverId: "001bc50940810000",
+      receiverIdType: 1,
+      rssi: -69,
+      numberOfDecodings: 3
+  }],
+  packets: [ /* As hexadecimal strings */ ],
+  timestamp: 1343392496789
+}
+```
 
 This library provides functionality to _encode_ a __raddec__, typically in anticipation of network transport to a destination computer, and to _decode_ the same __raddec__, typically to facilitate manipulation and storage of the contained information.
 
@@ -87,10 +102,10 @@ Optional Properties
 
 A __raddec__ may include any or all of the following properties.
 
-| Property          | Type            | Description                          |
-|-------------------|-----------------|--------------------------------------|
-| timestamp*        | Number          | *various options being defined...    |
-| packets           | Array of String | Hexadecimal string, lowercase, no duplicates |
+| Property  | Type            | Description                                  |
+|-----------|-----------------|----------------------------------------------|
+| timestamp | Number          | UNIX epoch (millisecond precision)           |
+| packets   | Array of String | Hexadecimal string, lowercase, no duplicates |
 
 
 Supported Wireless Protocols
