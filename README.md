@@ -106,6 +106,7 @@ A __raddec__ may include any or all of the following properties.
 |-----------|-----------------|----------------------------------------------|
 | timestamp | Number          | UNIX epoch (millisecond precision)           |
 | packets   | Array of String | Hexadecimal string, lowercase, no duplicates |
+| events    | Array of Number | Index list of associated events              |
 
 
 Supported Wireless Protocols

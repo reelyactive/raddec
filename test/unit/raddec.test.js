@@ -36,6 +36,9 @@ const INPUT_DATA_SECOND_PACKET =
     '061bffeeddccbbaa02010611074449555520657669746341796c65656c';
 const INPUT_DATA_THIRD_PACKET =
     '061bffeeddccbbaa02010611074449555520657669746341796c656572';
+const INPUT_DATA_FIRST_EVENT = Raddec.events.DISPLACEMENT;
+const INPUT_DATA_SECOND_EVENT = Raddec.events.PACKETS;
+const INPUT_DATA_THIRD_EVENT = Raddec.events.DISPLACEMENT;
 const INPUT_DATA_MERGE_RADDEC = {
     transmitterId: "aa:bb:cc:dd:ee:ff",
     transmitterIdType: 2,
@@ -51,6 +54,7 @@ const INPUT_DATA_MERGE_RADDEC = {
 };
 const INPUT_DATA_HEX_STRING_RADDEC =
     '10002202aabbccddeeff02350401001bc50940810000550101001bc5094081000117';
+const INPUT_DATA_HEX_STRING_RADDEC_OPTIONS =  '10008702aabbccddeeff02550101001bc50940810001350401001bc50940810000f0014aa3175900f1031d061bffeeddccbbaa02010611074449555520657669746341796c6565721d061bffeeddccbbaa02010611074449555520657669746341796c65656c1d061bffeeddccbbaa02010611074449555520657669746341796c656576f2063e';
 const INPUT_DATA_BUFFER_RADDEC =
     Buffer.from(INPUT_DATA_HEX_STRING_RADDEC, 'hex');
 const INPUT_DATA_TRIM_RADDEC = {
@@ -117,8 +121,14 @@ const EXPECTED_DATA_THIRD_PACKET = [
   '061bffeeddccbbaa02010611074449555520657669746341796c656572',
   '061bffeeddccbbaa02010611074449555520657669746341796c65656c'
 ];
+const EXPECTED_DATA_FIRST_EVENT = [ Raddec.events.DISPLACEMENT ];
+const EXPECTED_DATA_SECOND_EVENT = [ Raddec.events.DISPLACEMENT,
+                                     Raddec.events.PACKETS ];
+const EXPECTED_DATA_THIRD_EVENT = [ Raddec.events.DISPLACEMENT,
+                                    Raddec.events.PACKETS ];
 const EXPECTED_DATA_TIMESTAMP_ENCODING = '10002902aabbccddeeff02550101001bc50940810001350401001bc50940810000f0014aa31759006c';
 const EXPECTED_DATA_PACKET_ENCODING = '10007e02aabbccddeeff02550101001bc50940810001350401001bc50940810000f1031d061bffeeddccbbaa02010611074449555520657669746341796c6565721d061bffeeddccbbaa02010611074449555520657669746341796c65656c1d061bffeeddccbbaa02010611074449555520657669746341796c656576ef';
+const EXPECTED_DATA_EVENTS_ENCODING = '10002402aabbccddeeff02550101001bc50940810001350401001bc50940810000f20611';
 const EXPECTED_DATA_MERGE_RSSI_SIGNATURE = [{
     receiverId: "001bc50940810001",
     receiverIdType: 1, 
@@ -152,6 +162,28 @@ const EXPECTED_DATA_HEX_STRING_RADDEC = {
       rssi: -42,
       numberOfDecodings: 1
     }]
+};
+const EXPECTED_DATA_HEX_STRING_RADDEC_OPTIONS = {
+    transmitterId: "aabbccddeeff",
+    transmitterIdType: 2,
+    rssiSignature: [{
+      receiverId: "001bc50940810001",
+      receiverIdType: 1, 
+      rssi: -42,
+      numberOfDecodings: 1
+    },{
+      receiverId: "001bc50940810000",
+      receiverIdType: 1, 
+      rssi: -74,
+      numberOfDecodings: 4
+    }],
+    timestamp: 1420075424000,
+    packets: [
+        "061bffeeddccbbaa02010611074449555520657669746341796c656572",
+        "061bffeeddccbbaa02010611074449555520657669746341796c65656c",
+        "061bffeeddccbbaa02010611074449555520657669746341796c656576"
+    ],
+    events: [ Raddec.events.DISPLACEMENT, Raddec.events.PACKETS ]
 };
 const EXPECTED_DATA_BUFFER_RADDEC = EXPECTED_DATA_HEX_STRING_RADDEC;
 const EXPECTED_DATA_TRIM_RADDEC = {
@@ -237,6 +269,24 @@ describe('raddec', function() {
     assert.deepEqual(raddec.packets, EXPECTED_DATA_THIRD_PACKET);
   });
 
+  // Test the addEvent function
+  it('should add an event', function() {
+    raddec.addEvent(INPUT_DATA_FIRST_EVENT);
+    assert.deepEqual(raddec.events, EXPECTED_DATA_FIRST_EVENT);
+  });
+
+  // Test the addEvent function with a new event
+  it('should add another event', function() {
+    raddec.addEvent(INPUT_DATA_SECOND_EVENT);
+    assert.deepEqual(raddec.events, EXPECTED_DATA_SECOND_EVENT);
+  });
+
+  // Test the addEvent function with an existing event
+  it('should not add an existing event again', function() {
+    raddec.addEvent(INPUT_DATA_THIRD_EVENT);
+    assert.deepEqual(raddec.events, EXPECTED_DATA_THIRD_EVENT);
+  });
+
   // Test the merge function with another raddec
   it('should merge the given raddec into the current', function() {
     raddec.merge(new Raddec(INPUT_DATA_MERGE_RADDEC));
@@ -258,10 +308,22 @@ describe('raddec', function() {
                  EXPECTED_DATA_PACKET_ENCODING);
   });
 
+  // Test the encoder with optional events
+  it('should encode a Raddec with optional events', function() {
+    assert.equal(raddec.encodeAsHexString({ includeEvents: true }),
+                 EXPECTED_DATA_EVENTS_ENCODING);
+  });
+
   // Test the constructor from hexadecimal string
   it('should construct a Raddec from hexadecimal string', function() {
     raddec = new Raddec(INPUT_DATA_HEX_STRING_RADDEC);
     assert.deepEqual(raddec, EXPECTED_DATA_HEX_STRING_RADDEC);
+  });
+
+  // Test the constructor from hexadecimal string with optional properties
+  it('should construct a Raddec from hexadecimal string', function() {
+    raddec = new Raddec(INPUT_DATA_HEX_STRING_RADDEC_OPTIONS);
+    assert.deepEqual(raddec, EXPECTED_DATA_HEX_STRING_RADDEC_OPTIONS);
   });
 
   // Test the constructor from Buffer
