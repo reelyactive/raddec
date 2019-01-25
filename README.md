@@ -76,13 +76,17 @@ console.log(raddec);
 ```
 
 
-Mandatory Properties
---------------------
+Properties
+----------
 
-A __raddec__ includes the following three mandatory properties in both its _encoded_ and _decoded_ form.
+A __raddec__ _must_ include the following mandatory properties and _may_ include any or all of the following optional properties.
+
+### Mandatory Properties
+
+A __raddec__ includes the following three mandatory properties in both its _encoded_ (binary) and _decoded_ (JSON) form.
 
 | Property          | Type            | Description                          |
-|-------------------|-----------------|--------------------------------------|
+|:------------------|:----------------|:-------------------------------------|
 | transmitterId     | String          | Hexadecimal string, lowercase, no separators |
 | transmitterIdType | Number          | Single byte (0-255)                  |
 | rssiSignature     | Array of Object | Ordered from strongest to weakest RSSI |
@@ -90,23 +94,30 @@ A __raddec__ includes the following three mandatory properties in both its _enco
 Each object in the rssiSignature array includes the following properties.
 
 | Property          | Type            | Description                          |
-|-------------------|-----------------|--------------------------------------|
+|:------------------|:----------------|:-------------------------------------|
 | receiverId        | String          | Hexadecimal string, lowercase, no separators |
 | receiverIdType    | Number          | Single byte (0-255)                  |
 | rssi              | Number          | In dBm                               |
 | numberOfDecodings | Number          | Range of 1-255 (0 reserved)          |
 
 
-Optional Properties
--------------------
+### Optional Properties
 
-A __raddec__ may include any or all of the following properties.
+A __raddec__ _may_ include any or all of the following properties.
 
 | Property  | Type            | Description                                  |
-|-----------|-----------------|----------------------------------------------|
+|:----------|:----------------|:---------------------------------------------|
 | timestamp | Number          | UNIX epoch (millisecond precision)           |
 | packets   | Array of String | Hexadecimal string, lowercase, no duplicates |
 | events    | Array of Number | Index list of associated events              |
+
+When encoding a __raddec__, the optional properties to include must be explicitly specified, as the following example illustrates:
+
+```javascript
+let encodedRaddec = raddec.encodeAsHexString({ includeTimestamp: true,
+                                               includePackets: true,
+                                               includeEvents: true });
+```
 
 
 Supported Wireless Protocols
@@ -120,10 +131,41 @@ The __raddec__ library is being developed with consideration for the following p
 - proprietary Active RFID (ex: reelyActive)
 
 
+Quick Reference
+---------------
+
+Both _identifier types_ and _event types_ are represented as numerical indexes for efficient manipulation and compact storage.
+
+### Identifier Types
+
+The identifier type indexes, which can be found in the _identifiers.js_ file, are as follows:
+
+| Index | Raddec.identifiers. | Description                                  |
+|:------|:--------------------|:---------------------------------------------|
+| 0     | TYPE_UNKNOWN        | Unknown identifier type                      |
+| 1     | TYPE_EUI64          | EUI-64 (used by reelyActive infrastructure)  |
+| 2     | TYPE_EUI48          | EUI-48 (WiFi, BLE public addresses)          |
+| 3     | TYPE_RND48          | Random 48-bit advertiser address (BLE)       |
+| 4+    | - RESERVED -        | Reserved for future use                      |
+
+### Event Types
+
+The event type indexes, which can be found in the _events.js_ file, are as follows:
+
+| Index | Raddec.events.  | Description                                         |
+|:------|:----------------|:----------------------------------------------------|
+| 0     | APPEARANCE      | First decoding of the transmitter in recent memory  |
+| 1     | DISPLACEMENT    | Change of strongest receiver by transmitter         |
+| 2     | PACKETS         | New packet payload received from transmitter        |
+| 3     | KEEPALIVE       | Periodic update of transmitter's recent decoding(s) |
+| 4     | DISAPPEARANCE   | Transmitter no longer decoded by any receiver       |
+| 5-7   | - RESERVED -    | Reserved for future use                             |
+
+
 What's next?
 ------------
 
-This library is currently in active development and breaking changes to the encoded __raddec__ are to be expected.  If you have an interest in using this library and/or have strong thoughts on its properties, kindly get in touch via our [contact information](https://www.reelyactive.com/contact/).
+This library is currently in active development and breaking changes to the encoded __raddec__ may occur.  If you have an interest in using this library and/or have strong thoughts on its properties, kindly get in touch via our [contact information](https://www.reelyactive.com/contact/).
 
 
 License
