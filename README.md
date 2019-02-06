@@ -1,7 +1,12 @@
 raddec
 ======
 
-RADio DECoding packet library for RFID, RTLS and M2M.  We believe in an open Internet of Things.
+RADio DECoding packet library for RFID, RTLS and M2M
+----------------------------------------------------
+
+A __raddec__ is an open-standard representation of a radio decoding.  This library provides functionality to manipulate __raddec__s as JSON and to convert to/from their binary representation.
+
+![raddec overview](https://reelyactive.github.io/raddec/images/raddec-overview.png)
 
 
 Motivation
@@ -165,7 +170,7 @@ The event type indexes, which can be found in the _events.js_ file, are as follo
 What's next?
 ------------
 
-This library is currently in active development and breaking changes to the encoded __raddec__ may occur.  If you have an interest in using this library and/or have strong thoughts on its properties, kindly get in touch via our [contact information](https://www.reelyactive.com/contact/).
+This library is currently in active development.  Expect features to be added periodically.  We recommend observing semantic versioning best practices for dependents should breaking changes be required.  If you have an interest in using this library and/or have strong thoughts on its properties, kindly get in touch via our [contact information](https://www.reelyactive.com/contact/).
 
 
 License
