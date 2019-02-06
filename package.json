@@ -1,7 +1,10 @@
 {
   "name": "raddec",
   "homepage": "https://github.com/reelyactive/raddec/",
-  "author": "reelyActive <webdev@reelyactive.com>",
+  "author": {
+    "name": "reelyActive",
+    "email": "info@reelyactive.com"
+  },
   "description": "RADio DECoding packet library for RFID, RTLS and M2M.  We believe in an open Internet of Things.",
   "keywords": [
     "reelyActive",
@@ -11,7 +14,7 @@
     "M2M",
     "library"
   ],
-  "version": "0.2.1",
+  "version": "0.2.2",
   "engines": {
     "node": ">=6.0.0"
   },
