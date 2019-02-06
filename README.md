@@ -61,11 +61,15 @@ raddec.addDecoding({
 });
 
 // Encoding results in a compact representation
-console.log(raddec.encodeAsHexString());
+let encoded = raddec.encodeAsHexString();
+console.log(encoded);
 // -> 10001702aabbccddeeff013a0101001bc509408100000b (23 bytes)
 
 // Decoding restores a standard, easy-to-manipulate JSON object
-raddec = new Raddec(raddec.encodeAsHexString());
+raddec = new Raddec(encoded);
+
+// A trim prunes any non-standard properties, adds timestamp if none present
+raddec.trim();
 console.log(raddec);
 // {
 //    transmitterId: "aabbccddeeff",
@@ -75,7 +79,22 @@ console.log(raddec);
 //        receiverIdType: 1,
 //        rssi: -69,
 //        numberOfDecodings: 1
-//    }]
+//    }],
+//    timestamp: 1343392496789
+//  }
+
+// Flattening creates a JSON object suitable for storage/search/retrieval
+let flattened = raddec.toFlattened();
+console.log(flattened);
+// {
+//    transmitterId: "aabbccddeeff",
+//    transmitterIdType: 2,
+//    receiverId: "001bc50940810000",
+//    receiverIdType: 1,
+//    rssi: -69,
+//    numberOfDecodings: 1,
+//    numberOfReceivers: 1,
+//    timestamp: 1343392496789
 //  }
 
 ```

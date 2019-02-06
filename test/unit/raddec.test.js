@@ -1,5 +1,5 @@
 /**
- * Copyright reelyActive 2018
+ * Copyright reelyActive 2018-2019
  * We believe in an open Internet of Things
  */
 
@@ -57,6 +57,19 @@ const INPUT_DATA_HEX_STRING_RADDEC =
 const INPUT_DATA_HEX_STRING_RADDEC_OPTIONS =  '10008702aabbccddeeff02550101001bc50940810001350401001bc50940810000f0014aa3175900f1031d061bffeeddccbbaa02010611074449555520657669746341796c6565721d061bffeeddccbbaa02010611074449555520657669746341796c65656c1d061bffeeddccbbaa02010611074449555520657669746341796c656576f2063e';
 const INPUT_DATA_BUFFER_RADDEC =
     Buffer.from(INPUT_DATA_HEX_STRING_RADDEC, 'hex');
+const INPUT_DATA_FLATTENED_RADDEC = {
+    transmitterId: "aabbccddeeff",
+    transmitterIdType: 2,
+    rssiSignature: [{
+        receiverId: "001bc50940810000",
+        receiverIdType: 1,
+        rssi: -77,
+        numberOfDecodings: 2
+    }],
+    packets: [ '061bffeeddccbbaa02010611074449555520657669746341796c656576' ],
+    timestamp: 1420075424000,
+    events: [ 0 ]
+};
 const INPUT_DATA_TRIM_RADDEC = {
     transmitterId: "aa:bb:cc:dd:ee:ff",
     transmitterIdType: 2,
@@ -186,6 +199,19 @@ const EXPECTED_DATA_HEX_STRING_RADDEC_OPTIONS = {
     events: [ Raddec.events.DISPLACEMENT, Raddec.events.PACKETS ]
 };
 const EXPECTED_DATA_BUFFER_RADDEC = EXPECTED_DATA_HEX_STRING_RADDEC;
+const EXPECTED_DATA_FLATTENED_RADDEC = {
+    transmitterId: "aabbccddeeff",
+    transmitterIdType: 2,
+    receiverId: "001bc50940810000",
+    receiverIdType: 1,
+    rssi: -77,
+    numberOfDecodings: 2,
+    numberOfReceivers: 1,
+    packets: [ '061bffeeddccbbaa02010611074449555520657669746341796c656576' ],
+    numberOfDistinctPackets: 1,
+    timestamp: 1420075424000,
+    events: [ 0 ]
+};
 const EXPECTED_DATA_TRIM_RADDEC = {
     transmitterId: "aabbccddeeff",
     transmitterIdType: 2,
@@ -330,6 +356,12 @@ describe('raddec', function() {
   it('should construct a Raddec from Buffer', function() {
     raddec = new Raddec(INPUT_DATA_BUFFER_RADDEC);
     assert.deepEqual(raddec, EXPECTED_DATA_BUFFER_RADDEC);
+  });
+
+  // Test the toFlattened function
+  it('should create a flattened representation of the Raddec', function() {
+    raddec = new Raddec(INPUT_DATA_FLATTENED_RADDEC);
+    assert.deepEqual(raddec.toFlattened(), EXPECTED_DATA_FLATTENED_RADDEC);
   });
 
   // Test the trim function
