@@ -207,6 +207,12 @@ const EXPECTED_DATA_FLATTENED_RADDEC = {
     rssi: -77,
     numberOfDecodings: 2,
     numberOfReceivers: 1,
+    rssiSignature: [{
+        receiverId: "001bc50940810000",
+        receiverIdType: 1,
+        rssi: -77,
+        numberOfDecodings: 2
+    }],
     packets: [ '061bffeeddccbbaa02010611074449555520657669746341796c656576' ],
     numberOfDistinctPackets: 1,
     timestamp: 1420075424000,
