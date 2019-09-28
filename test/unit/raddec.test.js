@@ -65,6 +65,12 @@ const INPUT_DATA_FLATTENED_RADDEC = {
         receiverIdType: 1,
         rssi: -77,
         numberOfDecodings: 2
+    },
+    {
+        receiverId: "001bc50940810001",
+        receiverIdType: 1,
+        rssi: -80,
+        numberOfDecodings: 2
     }],
     packets: [ '061bffeeddccbbaa02010611074449555520657669746341796c656576' ],
     timestamp: 1420075424000,
@@ -72,7 +78,9 @@ const INPUT_DATA_FLATTENED_RADDEC = {
 };
 const INPUT_OPTIONS_FLATTENED = {
     includePackets: false,
-    includeRssiSignature: true
+    includeRssiSignature: true,
+    maxNumberOfReceivers: 1,
+    rssiThreshold: -77
 };
 const INPUT_DATA_TRIM_RADDEC = {
     transmitterId: "aa:bb:cc:dd:ee:ff",
@@ -210,7 +218,7 @@ const EXPECTED_DATA_FLATTENED_RADDEC = {
     receiverIdType: 1,
     rssi: -77,
     numberOfDecodings: 2,
-    numberOfReceivers: 1,
+    numberOfReceivers: 2,
     packets: [ '061bffeeddccbbaa02010611074449555520657669746341796c656576' ],
     numberOfDistinctPackets: 1,
     timestamp: 1420075424000,
@@ -229,7 +237,7 @@ const EXPECTED_DATA_FLATTENED_RADDEC_WITH_OPTIONS = {
         numberOfDecodings: 2
     }],
     numberOfDecodings: 2,
-    numberOfReceivers: 1,
+    numberOfReceivers: 2,
     numberOfDistinctPackets: 1,
     timestamp: 1420075424000,
     events: [ 0 ]
