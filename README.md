@@ -83,8 +83,15 @@ console.log(raddec);
 //    timestamp: 1343392496789
 //  }
 
-// Flattening creates a JSON object suitable for storage/search/retrieval
-let flattened = raddec.toFlattened();
+// Flattening creates a JSON object suitable for storage/search/retrieval,
+//   with the default options shown below
+let options = {
+    includePackets: true,        // Applicable when packets property is present
+    includeRssiSignature: false, // Note that the rssiSignature is NOT flat
+    maxNumberOfReceivers: 15,    // Only considered if
+    rssiThreshold: -127          //   includeRssiSignature is true
+};
+let flattened = raddec.toFlattened(options);
 console.log(flattened);
 // {
 //    transmitterId: "aabbccddeeff",
