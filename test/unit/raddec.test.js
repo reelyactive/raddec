@@ -70,6 +70,10 @@ const INPUT_DATA_FLATTENED_RADDEC = {
     timestamp: 1420075424000,
     events: [ 0 ]
 };
+const INPUT_OPTIONS_FLATTENED = {
+    includePackets: false,
+    includeRssiSignature: true
+};
 const INPUT_DATA_TRIM_RADDEC = {
     transmitterId: "aa:bb:cc:dd:ee:ff",
     transmitterIdType: 2,
@@ -208,6 +212,24 @@ const EXPECTED_DATA_FLATTENED_RADDEC = {
     numberOfDecodings: 2,
     numberOfReceivers: 1,
     packets: [ '061bffeeddccbbaa02010611074449555520657669746341796c656576' ],
+    numberOfDistinctPackets: 1,
+    timestamp: 1420075424000,
+    events: [ 0 ]
+};
+const EXPECTED_DATA_FLATTENED_RADDEC_WITH_OPTIONS = {
+    transmitterId: "aabbccddeeff",
+    transmitterIdType: 2,
+    receiverId: "001bc50940810000",
+    receiverIdType: 1,
+    rssi: -77,
+    rssiSignature: [{
+        receiverId: "001bc50940810000",
+        receiverIdType: 1,
+        rssi: -77,
+        numberOfDecodings: 2
+    }],
+    numberOfDecodings: 2,
+    numberOfReceivers: 1,
     numberOfDistinctPackets: 1,
     timestamp: 1420075424000,
     events: [ 0 ]
@@ -362,6 +384,13 @@ describe('raddec', function() {
   it('should create a flattened representation of the Raddec', function() {
     raddec = new Raddec(INPUT_DATA_FLATTENED_RADDEC);
     assert.deepEqual(raddec.toFlattened(), EXPECTED_DATA_FLATTENED_RADDEC);
+  });
+
+  // Test the toFlattened function with options
+  it('should create a flattened Raddec with options', function() {
+    raddec = new Raddec(INPUT_DATA_FLATTENED_RADDEC);
+    assert.deepEqual(raddec.toFlattened(INPUT_OPTIONS_FLATTENED),
+                     EXPECTED_DATA_FLATTENED_RADDEC_WITH_OPTIONS);
   });
 
   // Test the trim function
