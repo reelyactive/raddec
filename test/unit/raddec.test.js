@@ -373,18 +373,21 @@ describe('raddec', function() {
   // Test the constructor from hexadecimal string
   it('should construct a Raddec from hexadecimal string', function() {
     raddec = new Raddec(INPUT_DATA_HEX_STRING_RADDEC);
+    delete raddec['creationTime'];
     assert.deepEqual(raddec, EXPECTED_DATA_HEX_STRING_RADDEC);
   });
 
   // Test the constructor from hexadecimal string with optional properties
   it('should construct a Raddec from hexadecimal string', function() {
     raddec = new Raddec(INPUT_DATA_HEX_STRING_RADDEC_OPTIONS);
+    delete raddec['creationTime'];
     assert.deepEqual(raddec, EXPECTED_DATA_HEX_STRING_RADDEC_OPTIONS);
   });
 
   // Test the constructor from Buffer
   it('should construct a Raddec from Buffer', function() {
     raddec = new Raddec(INPUT_DATA_BUFFER_RADDEC);
+    delete raddec['creationTime'];
     assert.deepEqual(raddec, EXPECTED_DATA_BUFFER_RADDEC);
   });
 
