@@ -199,6 +199,20 @@ What's next?
 This library is currently in active development.  Expect features to be added periodically.  We recommend observing semantic versioning best practices for dependents should breaking changes be required.  If you have an interest in using this library and/or have strong thoughts on its properties, kindly get in touch via our [contact information](https://www.reelyactive.com/contact/).
 
 
+Contributing
+------------
+
+Discover [how to contribute](CONTRIBUTING.md) to this open source project which upholds a standard [code of conduct](CODE_OF_CONDUCT.md).
+
+
+Security
+--------
+
+Consult our [security policy](SECURITY.md) for best practices using this open source software and to report vulnerabilities.
+
+[![Known Vulnerabilities](https://snyk.io/test/github/reelyactive/raddec/badge.svg)](https://snyk.io/test/github/reelyactive/raddec)
+
+
 License
 -------
 
