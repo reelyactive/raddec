@@ -4,7 +4,7 @@ raddec
 RADio DECoding packet library for RFID, RTLS and M2M
 ----------------------------------------------------
 
-A __raddec__ is an open-standard representation of a radio decoding.  This library provides functionality to manipulate __raddec__s as JSON and to convert to/from their binary representation.
+A __raddec__ is an open-standard representation of a radio decoding.  This library provides functionality to manipulate any __raddec__ as JSON and to convert to/from its binary representation.
 
 ![raddec overview](https://reelyactive.github.io/raddec/images/raddec-overview.png)
 
@@ -17,7 +17,7 @@ Radio-Frequency IDentification (RFID), Real-Time Location Systems (RTLS) and M2M
 - each transmitter and receiver has its own identifier
 - each received packet produces metadata including a timestamp and a Received Signal Strength Indication (RSSI)
 
-For a broad range of applications, it is useful to identify, to locate and to collect sensed data from wireless devices, and this __raddec__ library is developed with the intent of providing a protocol-agnostic means of representing and efficiently transferring such information across networks.
+For a broad range of applications, it is useful to identify, to locate and to collect [ambient data](https://www.reelyactive.com/ambient-data/) from wireless devices, and this __raddec__ library is developed with the intent of providing a protocol-agnostic means of representing and efficiently transferring such information across networks.
 
 
 Overview
@@ -171,13 +171,14 @@ Both _identifier types_ and _event types_ are represented as numerical indexes f
 
 The identifier type indexes, which can be found in the _identifiers.js_ file, are as follows:
 
-| Index | Raddec.identifiers. | Description                                  |
-|:------|:--------------------|:---------------------------------------------|
-| 0     | TYPE_UNKNOWN        | Unknown identifier type                      |
-| 1     | TYPE_EUI64          | EUI-64 (used by reelyActive infrastructure)  |
-| 2     | TYPE_EUI48          | EUI-48 (WiFi, BLE public addresses)          |
-| 3     | TYPE_RND48          | Random 48-bit advertiser address (BLE)       |
-| 4+    | - RESERVED -        | Reserved for future use                      |
+| Index | Raddec.identifiers. | Description                                    |
+|:------|:--------------------|:-----------------------------------------------|
+| 0     | TYPE_UNKNOWN        | Unknown identifier type                        |
+| 1     | TYPE_EUI64          | EUI-64 (used by reelyActive infrastructure)    |
+| 2     | TYPE_EUI48          | EUI-48 (WiFi, BLE public addresses)            |
+| 3     | TYPE_RND48          | Random 48-bit advertiser address (BLE)         |
+| 4     | TYPE_TID160         | 160-bit tag identifier (EPC Tag Data Standard) |
+| 5+    | - RESERVED -        | Reserved for future use                        |
 
 ### Event Types
 
