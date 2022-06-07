@@ -177,7 +177,7 @@ The identifier type indexes, which can be found in the _identifiers.js_ file, ar
 | 1     | TYPE_EUI64          | EUI-64 (used by reelyActive infrastructure)    |
 | 2     | TYPE_EUI48          | EUI-48 (WiFi, BLE public addresses)            |
 | 3     | TYPE_RND48          | Random 48-bit advertiser address (BLE)         |
-| 4     | TYPE_TID160         | 160-bit tag identifier (EPC Tag Data Standard) |
+| 4     | TYPE_TID96          | 96-bit tag identifier (EPC Tag Data Standard)  |
 | 5+    | - RESERVED -        | Reserved for future use                        |
 
 ### Event Types
