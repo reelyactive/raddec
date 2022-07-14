@@ -179,7 +179,8 @@ The identifier type indexes, which can be found in the _identifiers.js_ file, ar
 | 3     | TYPE_RND48          | Random 48-bit advertiser address (BLE)         |
 | 4     | TYPE_TID96          | 96-bit tag identifier (EPC Tag Data Standard)  |
 | 5     | TYPE_EPC96          | 96-bit Electronic Product Code (EPC)           |
-| 6+    | - RESERVED -        | Reserved for future use                        |
+| 6     | TYPE_UUID128        | 128-bit Universally Unique Identifier (UUID)   |
+| 7+    | - RESERVED -        | Reserved for future use                        |
 
 ### Event Types
 
