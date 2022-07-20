@@ -141,6 +141,7 @@ A __raddec__ _may_ include any or all of the following properties.
 | timestamp | Number          | UNIX epoch (millisecond precision)           |
 | packets   | Array of String | Hexadecimal string, lowercase, no duplicates |
 | events    | Array of Number | Index list of associated events              |
+| position  | Array of Number | X, Y, Z coordinates                          |
 
 When encoding a __raddec__, the optional properties to include must be explicitly specified, as the following example illustrates:
 

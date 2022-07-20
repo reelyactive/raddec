@@ -1,5 +1,5 @@
 /**
- * Copyright reelyActive 2018-2019
+ * Copyright reelyActive 2018-2022
  * We believe in an open Internet of Things
  */
 
@@ -98,6 +98,7 @@ const INPUT_DATA_TRIM_RADDEC = {
         rssiSum: -154,
         numberOfDecodings: 2
     }],
+    position: [ -73.57122, 45.50887, 69 ],
     earliestDecodingTime: 1420075424000
 };
 
@@ -262,6 +263,7 @@ const EXPECTED_DATA_TRIM_RADDEC = {
         rssi: -77,
         numberOfDecodings: 2
     }],
+    position: [ -73.57122, 45.50887, 69 ],
     timestamp: 1420075424000
 };
 
