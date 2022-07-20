@@ -131,6 +131,12 @@ Each object in the rssiSignature array includes the following properties.
 | rssi              | Number          | In dBm                               |
 | numberOfDecodings | Number          | Range of 1-255 (0 reserved)          |
 
+Any object in the rssiSignature array may also include the following property.
+
+| Property          | Type            | Description                          |
+|:------------------|:----------------|:-------------------------------------|
+| aoa               | Array of Number | Angle of Arrival: azimuth, elevation |
+
 
 ### Optional Properties
 

@@ -96,7 +96,8 @@ const INPUT_DATA_TRIM_RADDEC = {
         receiverIdType: 1,
         rssi: -77,
         rssiSum: -154,
-        numberOfDecodings: 2
+        numberOfDecodings: 2,
+        aoa: [ 180, -45 ]
     }],
     position: [ -73.57122, 45.50887, 69 ],
     earliestDecodingTime: 1420075424000
@@ -261,7 +262,8 @@ const EXPECTED_DATA_TRIM_RADDEC = {
         receiverId: "001bc50940810000",
         receiverIdType: 1,
         rssi: -77,
-        numberOfDecodings: 2
+        numberOfDecodings: 2,
+        aoa: [ 180, -45 ]
     }],
     position: [ -73.57122, 45.50887, 69 ],
     timestamp: 1420075424000
