@@ -154,7 +154,8 @@ When encoding a __raddec__, the optional properties to include must be explicitl
 ```javascript
 let encodedRaddec = raddec.encodeAsHexString({ includeTimestamp: true,
                                                includePackets: true,
-                                               includeEvents: true });
+                                               includeEvents: true,
+                                               includePosition: true });
 ```
 
 
