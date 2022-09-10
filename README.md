@@ -188,7 +188,8 @@ The identifier type indexes, which can be found in the _identifiers.js_ file, ar
 | 4     | TYPE_TID96          | 96-bit tag identifier (EPC Tag Data Standard)  |
 | 5     | TYPE_EPC96          | 96-bit Electronic Product Code (EPC)           |
 | 6     | TYPE_UUID128        | 128-bit Universally Unique Identifier (UUID)   |
-| 7+    | - RESERVED -        | Reserved for future use                        |
+| 7     | TYPE_EURID32        | 32-bit EnOcean Unique Radio Identifier (EURID) |
+| 8+    | - RESERVED -        | Reserved for future use                        |
 
 ### Event Types
 
