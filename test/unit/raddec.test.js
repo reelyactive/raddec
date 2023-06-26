@@ -107,6 +107,7 @@ const INPUT_DATA_TRIM_RADDEC = {
     rssiSignature: [{
         receiverId: "001bc50940810000",
         receiverIdType: 1,
+        receiverAntenna: 1,
         rssi: -77,
         rssiSum: -154,
         numberOfDecodings: 2,
@@ -276,6 +277,7 @@ const EXPECTED_DATA_TRIM_RADDEC = {
     rssiSignature: [{
         receiverId: "001bc50940810000",
         receiverIdType: 1,
+        receiverAntenna: 1,
         rssi: -77,
         numberOfDecodings: 2,
         aoa: [ 180, -45 ]

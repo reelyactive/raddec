@@ -8,6 +8,8 @@ A __raddec__ is an open-standard representation of a radio decoding.  This libra
 
 ![raddec overview](https://reelyactive.github.io/raddec/images/raddec-overview.png)
 
+__raddec__ is a lightweight [Node.js package](https://www.npmjs.com/package/raddec) that can run on resource-constrained edge devices as well as on powerful cloud servers and anything in between. It is core to reelyActive's [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/) open source middleware suite and [barnowl](https://github.com/reelyactive/barnowl) modules which interface with gateways, readers and APs across vendors and technologies.
+
 
 Motivation
 ----------
@@ -39,6 +41,8 @@ A __raddec__ has two forms: an _encoded_ form in which it has a strict binary re
   timestamp: 1343392496789
 }
 ```
+
+See the [reelyActive Developer's Cheatsheet](https://reelyactive.github.io/diy/cheatsheet/) for a developer-friendly overview of the __raddec__ JSON.
 
 This library provides functionality to _encode_ a __raddec__, typically in anticipation of network transport to a destination computer, and to _decode_ the same __raddec__, typically to facilitate manipulation and storage of the contained information.
 
@@ -135,7 +139,10 @@ Any object in the rssiSignature array may also include the following property.
 
 | Property          | Type            | Description                          |
 |:------------------|:----------------|:-------------------------------------|
+| receiverAntenna   | Number          | Antenna ID or Antenna Port           |
 | aoa               | Array of Number | Angle of Arrival: azimuth, elevation |
+
+Note that the optional `receiverAntenna` and `aoa` properties are _not_ included in the binary representation of a __raddec__: this is a limitation of v0.x of this library.
 
 
 ### Optional Properties
