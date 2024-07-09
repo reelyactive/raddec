@@ -149,12 +149,13 @@ Note that the optional `receiverAntenna` and `aoa` properties are _not_ included
 
 A __raddec__ _may_ include any or all of the following properties.
 
-| Property  | Type            | Description                                  |
-|:----------|:----------------|:---------------------------------------------|
-| timestamp | Number          | UNIX epoch (millisecond precision)           |
-| packets   | Array of String | Hexadecimal string, lowercase, no duplicates |
-| events    | Array of Number | Index list of associated events              |
-| position  | Array of Number | X, Y, Z coordinates                          |
+| Property    | Type            | Description                                  |
+|:------------|:----------------|:---------------------------------------------|
+| timestamp   | Number          | UNIX epoch (millisecond precision)           |
+| packets     | Array of String | Hexadecimal string, lowercase, no duplicates |
+| events      | Array of Number | Index list of associated events              |
+| position    | Array of Number | X, Y, Z coordinates                          |
+| protocolSpecificData | Object | May include any protocol-specific properties |
 
 When encoding a __raddec__, the optional properties to include must be explicitly specified, as the following example illustrates:
 
@@ -165,6 +166,8 @@ let encodedRaddec = raddec.encodeAsHexString({ includeTimestamp: true,
                                                includePosition: true });
 ```
 
+Note that `protocolSpecificData` is _not_ included in the binary representation of a __raddec__, it exists only as JSON.
+
 
 Supported Wireless Protocols
 ----------------------------
@@ -173,6 +176,7 @@ The __raddec__ library is being developed with consideration for the following p
 - Bluetooth Low Energy (broadcaster/observer roles)
 - WiFi (ex: probe requests)
 - RAIN RFID
+- EnOcean Alliance
 - LPWAN (various standards)
 - proprietary Active RFID (ex: reelyActive)
 
