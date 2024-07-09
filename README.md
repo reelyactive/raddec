@@ -6,7 +6,7 @@ RADio DECoding packet library for RFID, RTLS and M2M
 
 A __raddec__ is an open-standard representation of a radio decoding.  This library provides functionality to manipulate any __raddec__ as JSON and to convert to/from its binary representation.
 
-![raddec overview](https://reelyactive.github.io/raddec/images/raddec-overview.png)
+![raddec overview](https://reelyactive.github.io/raddec/images/overview.png)
 
 __raddec__ is a lightweight [Node.js package](https://www.npmjs.com/package/raddec) that can run on resource-constrained edge devices as well as on powerful cloud servers and anything in between. It is core to reelyActive's [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/) open source middleware suite and [barnowl](https://github.com/reelyactive/barnowl) modules which interface with gateways, readers and APs across vendors and technologies.
 
