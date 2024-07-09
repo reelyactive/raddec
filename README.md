@@ -1,8 +1,8 @@
 raddec
 ======
 
-RADio DECoding packet library for RFID, RTLS and M2M
-----------------------------------------------------
+Protocol-agnostic RADio DECoding packet library
+-----------------------------------------------
 
 A __raddec__ is an open-standard representation of a radio decoding.  This library provides functionality to manipulate any __raddec__ as JSON and to convert to/from its binary representation.
 
