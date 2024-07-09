@@ -1,5 +1,5 @@
 /**
- * Copyright reelyActive 2018-2022
+ * Copyright reelyActive 2018-2024
  * We believe in an open Internet of Things
  */
 
@@ -114,6 +114,7 @@ const INPUT_DATA_TRIM_RADDEC = {
         aoa: [ 180, -45 ]
     }],
     position: [ -73.57122, 45.50887, 69 ],
+    protocolSpecificData: {},
     earliestDecodingTime: 1420075424000
 };
 
@@ -283,6 +284,7 @@ const EXPECTED_DATA_TRIM_RADDEC = {
         aoa: [ 180, -45 ]
     }],
     position: [ -73.57122, 45.50887, 69 ],
+    protocolSpecificData: {},
     timestamp: 1420075424000
 };
 
@@ -452,6 +454,7 @@ describe('raddec', function() {
   // Test the trim function
   it('should trim non-standard properties from the Raddec', function() {
     raddec = new Raddec(INPUT_DATA_TRIM_RADDEC);
+    raddec.isNonStandardProperty = true;
     raddec.trim();
     assert.deepEqual(raddec, EXPECTED_DATA_TRIM_RADDEC);
   });
