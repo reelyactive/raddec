@@ -11,6 +11,12 @@ A __raddec__ is an open-standard representation of a radio decoding.  This libra
 __raddec__ is a lightweight [Node.js package](https://www.npmjs.com/package/raddec) that can run on resource-constrained edge devices as well as on powerful cloud servers and anything in between. It is core to reelyActive's [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/) open source middleware suite and [barnowl](https://github.com/reelyactive/barnowl) modules which interface with gateways, readers and APs across vendors and technologies.
 
 
+Open Source _and_ Published
+---------------------------
+
+In addition to being permissively-licensed open source software, our paper [raddec: Elevating IoT Interoperability Through a Common Radio Decoding Data Format](https://ieeexplore.ieee.org/document/10811227) was also published and presented at the 2024 IEEE 10th World Forum on Internet of Things (WF-IoT) in Ottawa, Canada.  Learn more at [reelyactive.com/science](https://www.reelyactive.com/science/).
+
+
 Motivation
 ----------
 
