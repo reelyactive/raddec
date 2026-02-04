@@ -14,7 +14,11 @@ __raddec__ is a lightweight [Node.js package](https://www.npmjs.com/package/radd
 Open Source _and_ Published
 ---------------------------
 
-In addition to being permissively-licensed open source software, our paper [raddec: Elevating IoT Interoperability Through a Common Radio Decoding Data Format](https://ieeexplore.ieee.org/document/10811227) was published and presented at the 2024 IEEE 10th World Forum on Internet of Things (WF-IoT) in Ottawa, Canada.  Learn more at [reelyactive.com/science](https://www.reelyactive.com/science/).
+In addition to being permissively-licensed open source software, our paper [raddec: Elevating IoT Interoperability Through a Common Radio Decoding Data Format](https://ieeexplore.ieee.org/document/10811227) was published and presented at the 2024 IEEE 10th World Forum on Internet of Things (WF-IoT) in Ottawa, Canada.
+
+![raddec poster](https://reelyactive.github.io/raddec/images/ieee-wfiot-2024-poster.png)
+
+Learn more at [reelyactive.com/science](https://www.reelyactive.com/science/).
 
 
 Motivation
