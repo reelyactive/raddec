@@ -16,7 +16,7 @@
   ],
   "version": "0.6.1",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=6.4.0"
   },
   "main": "./lib/raddec.js",
   "repository": {
