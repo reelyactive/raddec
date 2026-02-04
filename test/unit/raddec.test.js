@@ -1,5 +1,5 @@
 /**
- * Copyright reelyActive 2018-2024
+ * Copyright reelyActive 2018-2026
  * We believe in an open Internet of Things
  */
 
@@ -142,21 +142,22 @@ const EXPECTED_DATA_SECOND_RSSI_SIGNATURE = [{
 }];
 const EXPECTED_DATA_SECOND_EARLIEST_TIME = 1420075424567;
 const EXPECTED_DATA_THIRD_RSSI_SIGNATURE = [{
-    receiverId: "001bc50940810000",
-    receiverIdType: 1, 
-    rssi: -70,
-    rssiSum: -141,
-    numberOfDecodings: 2
-},{
     receiverId: "001bc50940810001",
     receiverIdType: 1, 
     rssi: -42,
     rssiSum: -42,
     numberOfDecodings: 1
+},{
+    receiverId: "001bc50940810000",
+    receiverIdType: 1, 
+    rssi: -70,
+    rssiSum: -141,
+    numberOfDecodings: 2
 }];
 const EXPECTED_DATA_THIRD_EARLIEST_TIME = 1420075424567;
 const EXPECTED_DATA_THIRD_ENCODING =
-  '10002202aabbccddeeff02390201001bc50940810000550101001bc5094081000119';
+  '10002202aabbccddeeff02550101001bc50940810001390201001bc5094081000019';
+
 const EXPECTED_DATA_FIRST_PACKET = [
   '061bffeeddccbbaa02010611074449555520657669746341796c656572'
 ];
